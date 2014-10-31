@@ -34,7 +34,7 @@ module Bundler
         vulnerable = false
         $stderr.puts repo.name
         in_temp_dir do
-          if download_file(repo, "Gemfile.lock")
+          if download_file(repo, "Gemfile.lock") && download_file(repo, "Gemfile")
             command = "bundle-audit"
             if options[:ignore_advisories] && options[:ignore_advisories].any?
               command << " --ignore #{options[:ignore_advisories].join(" ")}"
